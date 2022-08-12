@@ -1,43 +1,42 @@
-
-  const inquirer = require('inquirer');
+ const inquirer = require('inquirer');
   const fs = require('fs');
   
   const generateReadMe = ({ name, description, tableOfContents, installation, usage, credits, lincense, contributing, tests, questions }) =>
     `   # ${name}
 
-        ## Description
+   ## Description
         ${description}
 
-        ## Table of Contents
+  ## Table of Contents
         ${tableOfContents}
 
-        ## Installation
+  ## Installation
 
         ${installation}
 
-        ## Usage
+ ## Usage
 
         ${usage}
 
-        ## Credits
+ ## Credits
 
         ${credits}
 
-        ## Lincense
+ ## Lincense
 
         ${lincense}
 
-        - - - - 
+         
 
-        ## How to Contribute
+ ## How to Contribute
 
         ${contributing}
 
-        ## Tests
+ ## Tests
 
         ${tests}
 
-        ## Questions
+## Questions
 
         ${questions}
     
