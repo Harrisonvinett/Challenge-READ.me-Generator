@@ -1,43 +1,42 @@
-
-  const inquirer = require('inquirer');
+ const inquirer = require('inquirer');
   const fs = require('fs');
   
   const generateReadMe = ({ name, description, tableOfContents, installation, usage, credits, lincense, contributing, tests, questions }) =>
     `   # ${name}
 
-        ## Description
+   ## Description
         ${description}
 
-        ## Table of Contents
+  ## Table of Contents
         ${tableOfContents}
 
-        ## Installation
+  ## Installation
 
         ${installation}
 
-        ## Usage
+ ## Usage
 
         ${usage}
 
-        ## Credits
+ ## Credits
 
         ${credits}
 
-        ## Lincense
+ ## Lincense
 
         ${lincense}
 
-        - - - - 
+         
 
-        ## How to Contribute
+ ## How to Contribute
 
         ${contributing}
 
-        ## Tests
+ ## Tests
 
         ${tests}
 
-        ## Questions
+## Questions
 
         ${questions}
     
@@ -93,6 +92,19 @@
         message: 'How to run your application:',
       },
       {
+        type: 'input',
+        name: 'questions',
+        message: 'How a user will ask a question about application:',
+      },
+    ])
+    .then((answers) => {
+      const readMePageContent = generateReadMe(answers);
+  
+      fs.writeFile('README.md', readMePageContent, (err) =>
+        err ? console.log(err) : console.log('Successfully created index.html!')
+      );
+    });
+  
         type: 'input',
         name: 'questions',
         message: 'How a user will ask a question about application:',
